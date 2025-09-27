@@ -132,7 +132,7 @@ class LayerHealthBase(LayerBase):
                     subtype = ability["id_to_subtype"][8]
                     index = ability["id_to_index"][8]
                     name = f"{index}.{subtype}"
-                    wt = ability[name]["workTime"]
+                    wt = ability[name].get("workTime", 0)
                     rhs = ability[name]["regenerationHPSpeed"]
                     maxHeal = floor(wt) * rhs * self._player.max_health
                     canHeal = (
